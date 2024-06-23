@@ -1,27 +1,23 @@
-﻿using System;
-namespace Hello
+﻿namespace Generic_Methods
 {
-    public class Program
+    internal class Program
     {
-        public Program()
+
+        static void Swap<T>(T a ,T b)
         {
-            Console.WriteLine("Enter a day");
-            int day=int.Parse(Console.ReadLine());
-            switch (day)
-            {
-                case 0:
-                    Console.WriteLine("SUNDAY");
-                    break;
-                case 1:
-                    Console.WriteLine("MONDAY");
-                    break;
-                case 2:
-                    Console.WriteLine("TUESDAY");
-                    break;
-                default:
-                    Console.WriteLine("enter a valid number between 0 and 6");
-                    break;
-            }
-            }
+            T temp = a;
+            a = b;
+            b = temp;
+            Console.WriteLine($"Inside Swap method: a={a} ,b={b}");
+        }
+        static void Main(string[] args)
+        {
+            int x = 1;
+            int y = 2;
+            Console.WriteLine($"Before Swap method:x={x} ,y={y} ");
+            Swap(x,y);
+            Console.WriteLine($"after Swap method:x={x} ,y={y} ");
+
+        }
     }
 }
